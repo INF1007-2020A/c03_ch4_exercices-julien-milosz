@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 
 def is_even_len(string: str) -> bool:
-    return not bool(len(string) % 2)
+    return len(string) % 2 == 0
 
 def remove_third_char(string: str) -> str:
-    str3 = string[2]
-    return string.replace(str3, "", 1)
+    return string[:2] + string[3:]
 
 def replace_char(string: str, old_char: str, new_char: str) -> str:
     return string.replace(old_char, new_char)
@@ -17,6 +16,7 @@ def get_nb_char(string: str, char: str) -> int:
 
 
 def get_nb_words(sentence: str) -> int:
+    sentence = sentence.replace(".", "")
     return len(sentence) - len(sentence.replace(" ", "")) + 1
 
 
@@ -35,6 +35,7 @@ def main():
     print(f"Le nombre d'occurrence de l dans 'hello world' est : {get_nb_char(string, 'l')}")
 
     string = "Baby shark doo doo doo doo doo doo"
+    #string = "The 2006 Subway 500 was the 32nd stock car race of the 2006 NASCAR Nextel Cup Series and the sixth in the ten-race Chase for the Nextel Cup."
     print(f"Le nombre de mots dans la chaine {string} est: {get_nb_words(string)}")
 
 if __name__ == '__main__':
